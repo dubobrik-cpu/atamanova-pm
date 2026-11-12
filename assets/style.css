@@ -380,3 +380,11 @@ section:has(> .wrap > .contra){padding-top:0}
 .uhod li{position:relative;padding-left:22px;font-size:15.5px;line-height:1.45;color:#4a3f3a}
 .uhod li::before{content:"✓";position:absolute;left:0;top:0;color:var(--rose-d);font-weight:600}
 .uhod ul.net li::before{content:"✕";color:#9a8a84}
+/* 12.11 «Удаление татуажа»: текст рядом с роликами в карточке на главной и первым блоком страницы */
+.srv-cols{display:grid;gap:18px}
+.srv-txt h3{font-size:22px;margin-bottom:10px}
+.srv-txt p{font-size:15.5px;line-height:1.55;color:#4a3f3a;margin:0 0 10px}
+.srv-txt p:last-child{margin-bottom:0}
+.srv-txt b{font-weight:600;color:var(--ink)}
+.udal-txt{max-width:760px;background:var(--card);border-radius:18px;padding:22px}
+@media(min-width:900px){.srv-cols{grid-template-columns:minmax(0,auto) minmax(320px,1fr);align-items:start;gap:30px}}
