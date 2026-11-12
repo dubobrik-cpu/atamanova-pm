@@ -371,3 +371,6 @@ section:has(> .wrap > .contra){padding-top:0}
 .healing .gallery{grid-column:1/-1;margin-top:28px}
 .healing .gallery figcaption{color:#cbbdb5}
 .healing .vids-v{max-width:380px;justify-self:center;width:100%}
+/* главное фото бровей (photo_2026-11-11_08-37-17 → 09-03-36): у кадра коричневые полосы сторис сверху и снизу по 175 px, рамка показывает только само фото, файл не обрезан */
+.svc-hero .ph:has(img[src$="brovi-1.jpg"]){aspect-ratio:720/922}
+.svc-hero .ph:has(img[src$="brovi-1.jpg"]) img{height:100%;object-fit:cover}
