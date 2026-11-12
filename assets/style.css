@@ -231,3 +231,8 @@ section{padding:56px 0}
 .card .ph.txt{display:flex;align-items:flex-end;padding:14px;background:linear-gradient(160deg,#3a2c29,#241c1a)}
 .card .ph.txt span{font-family:Prata,serif;font-size:19px;line-height:1.2;color:#e9c9c6}
 .svc-hero .wrap:has(> :only-child){display:block}
+.duo video{width:100%;height:100%;object-fit:cover;display:block}
+.duo figure{position:relative;background:var(--rose-l)}
+.duo figcaption{position:absolute;left:8px;top:8px;font-size:12px;background:rgba(251,247,243,.92);border-radius:999px;padding:3px 9px}
+.duo.trio{grid-template-columns:1fr 1fr 1fr}
+.healing .duo figcaption{color:var(--ink)}
