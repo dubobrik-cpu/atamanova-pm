@@ -286,3 +286,13 @@ section .wrap > .strip{padding-left:0;padding-right:0}
 .strip img,.strip video{height:min(250px,calc(80vw / var(--r,1)));width:auto;aspect-ratio:var(--r,1)}
 .strip figcaption{max-width:min(220px,80vw)}
 @media(min-width:900px){.strip img,.strip video{height:min(300px,calc(60vw / var(--r,1)))}}
+/* 12.11 вечер: логотип заметнее, вопросы с фото Нади */
+.top .wrap{height:auto;padding-top:8px;padding-bottom:8px}
+.logo img{height:68px;width:auto}
+@media(min-width:960px){.logo img{height:76px}}
+.faq-wrap{display:grid;gap:24px}
+.faq-ph{max-width:360px;border-radius:20px;overflow:hidden}
+.faq-ph img{width:100%;height:auto}
+@media(min-width:900px){.faq-wrap{grid-template-columns:320px 1fr;align-items:start;gap:44px}.faq-wrap .faq{grid-template-columns:1fr}}
+.strip a{display:block}
+.split > *,.faq-wrap > *,.case > *{min-width:0}
