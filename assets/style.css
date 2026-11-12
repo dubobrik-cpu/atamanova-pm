@@ -351,3 +351,10 @@ section:has(> .wrap > .contra){padding-top:0}
 @keyframes pulse{0%{box-shadow:0 0 0 0 rgba(207,174,110,.6)}70%{box-shadow:0 0 0 14px rgba(207,174,110,0)}100%{box-shadow:0 0 0 0 rgba(207,174,110,0)}}
 @media(prefers-reduced-motion:reduce){.btn-cta,.btn-cta.pulse::after{animation:none}}
 :focus-visible{outline-color:var(--gold)}
+
+/* 12.11: логотип в векторе. Шапка - строкой (знак + имя), подвал - полный белый */
+.logo{display:block;flex:0 1 auto;min-width:0}
+.logo img{height:46px;width:auto;max-width:100%}
+@media(min-width:400px){.logo img{height:50px}}
+@media(min-width:960px){.logo img{height:58px}}
+.foot img{height:90px;width:auto}
