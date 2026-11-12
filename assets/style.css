@@ -309,3 +309,45 @@ section .wrap > .strip{padding-left:0;padding-right:0}
 .pair.v>div{flex:none;width:100%}
 .strip .pair.v{width:min(84vw,calc(108px * var(--rmax)))}
 @media(min-width:900px){.strip .pair.v{width:min(70vw,calc(130px * var(--rmax)))}}
+
+/* 12.11 правки Нади: белая подложка, залитые блоки (светло-серый и пудровый), настоящее золото, пульс на «Записаться» */
+:root{
+  --bg:#ffffff;--card:#f4f2f0;--fill-g:#f0eeec;--fill-p:#f7e8e4;
+  --rose-d:#a2625f;--gold:#86642f;
+  --gold-grad:linear-gradient(115deg,#a07636 0%,#cfae6e 30%,#f3e2b3 48%,#d4b274 62%,#a47b3a 100%);
+  --gold-text:linear-gradient(100deg,#7d5a26 0%,#a98444 45%,#7d5a26 100%)
+}
+body{background:var(--bg)}
+.top{background:rgba(255,255,255,.95);border-bottom-color:#ece7e3}
+/* заголовки: изящный шрифт + выделенная часть простым шрифтом чуть жирнее */
+h2 em,h1 em{font-family:Commissioner,system-ui,sans-serif;font-weight:500;letter-spacing:-.01em;color:var(--rose-d)}
+.healing h2 em{color:#e6b9b5}
+/* залитые блоки чередуются */
+#uslugi,#voprosy,section:has(> .wrap > .tech),section:has(> .wrap > .steps),section:has(.faq):not(#voprosy){background:var(--fill-g)}
+#ceny,#obuchenie,section:has(> .wrap > .price),section:has(> .wrap > .price-grid),section:has(> .wrap > .contra){background:var(--fill-p)}
+section:has(> .wrap > .contra){padding-top:0}
+#uslugi .srv,#voprosy .faq details,section:has(> .wrap > .tech) .tech .t,section:has(> .wrap > .steps) .step,section:has(.faq) .faq details,
+#ceny .price,section:has(> .wrap > .price) .price,section:has(> .wrap > .price-grid) .price,#obuchenie .why li,section:has(> .wrap > .contra) .contra{background:#fff;box-shadow:0 1px 2px rgba(29,23,21,.04),0 8px 24px rgba(29,23,21,.05)}
+.why li,.step,.tech .t,.faq details,.price,.contra,.srv{border:1px solid rgba(29,23,21,.05)}
+.chip{background:#fff;border-color:#e9d6d2}
+.subnav a{background:#fff;border-color:#e9d6d2}
+.note{background:var(--fill-p);border:1px solid #efd9d4}
+#ceny .note,section:has(> .wrap > .price) .note,section:has(> .wrap > .price-grid) .note{background:#fff}
+.step::before{background:var(--fill-p)}
+/* золото */
+.price .row .v,.srv-h .pr,.card .pr,.chip b,.tpr{background:var(--gold-text);-webkit-background-clip:text;background-clip:text;color:transparent;font-weight:500}
+.tpr{font-family:Commissioner,sans-serif;font-size:16px;margin-left:6px;white-space:nowrap}
+.coupon .sum,.rating .stars{background:var(--gold-grad);background-size:200% 100%;-webkit-background-clip:text;background-clip:text;color:transparent}
+.coupon{background:#1f1917;box-shadow:inset 0 0 0 1px rgba(214,178,116,.28)}
+.price .row{border-bottom-color:#efe2de}
+/* кнопки: золотые, с медленным переливом */
+.btn-cta{position:relative;background:var(--gold-grad);background-size:220% 100%;background-position:0 0;color:#2a1c0e;font-weight:500;box-shadow:0 6px 18px rgba(160,118,54,.30);animation:shine 6s ease-in-out infinite}
+.btn-cta:hover{background:var(--gold-grad);background-size:220% 100%;background-position:100% 0}
+.srv-more{color:var(--rose-d)}
+.sticky .btn{box-shadow:0 12px 28px rgba(160,118,54,.38)}
+@keyframes shine{0%,100%{background-position:0 0}50%{background-position:100% 0}}
+/* «Записаться»: мягкий пульс, зовёт нажать */
+.btn-cta.pulse::after{content:"";position:absolute;inset:0;border-radius:inherit;box-shadow:0 0 0 0 rgba(207,174,110,.65);animation:pulse 2.4s cubic-bezier(.4,0,.6,1) infinite;pointer-events:none}
+@keyframes pulse{0%{box-shadow:0 0 0 0 rgba(207,174,110,.6)}70%{box-shadow:0 0 0 14px rgba(207,174,110,0)}100%{box-shadow:0 0 0 0 rgba(207,174,110,0)}}
+@media(prefers-reduced-motion:reduce){.btn-cta,.btn-cta.pulse::after{animation:none}}
+:focus-visible{outline-color:var(--gold)}
