@@ -388,3 +388,5 @@ section:has(> .wrap > .contra){padding-top:0}
 .srv-txt b{font-weight:600;color:var(--ink)}
 .udal-txt{max-width:760px;background:var(--card);border-radius:18px;padding:22px}
 @media(min-width:900px){.srv-cols{grid-template-columns:minmax(0,auto) minmax(320px,1fr);align-items:start;gap:30px}}
+/* 12.11 карточка камуфляжа: на телефоне цена под названием, а не сбоку */
+@media(max-width:599px){.srv-h.col{flex-direction:column;gap:6px}.srv-h.col .pr{text-align:left;white-space:normal}}
