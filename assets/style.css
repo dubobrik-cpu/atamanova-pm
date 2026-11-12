@@ -236,3 +236,34 @@ section{padding:56px 0}
 .duo figcaption{position:absolute;left:8px;top:8px;font-size:12px;background:rgba(251,247,243,.92);border-radius:999px;padding:3px 9px}
 .duo.trio{grid-template-columns:1fr 1fr 1fr}
 .healing .duo figcaption{color:var(--ink)}
+
+/* 12.11: ничего не обрезаем, фото и видео показываем целиком в своих пропорциях */
+.cards{align-items:start}
+.card .ph{aspect-ratio:auto}
+.card .ph img{height:auto;object-fit:initial}
+.card .ph.txt{aspect-ratio:3/4}
+.gallery{display:block;columns:2;column-gap:8px}
+.gallery figure,.gallery figure.wide{aspect-ratio:auto;break-inside:avoid;margin:0 0 8px;display:block}
+.gallery img,.gallery video{height:auto;object-fit:initial}
+@media(min-width:900px){.gallery{columns:3;column-gap:12px}.gallery figure,.gallery figure.wide{margin-bottom:12px}}
+.split .ph{aspect-ratio:auto!important}
+.split .ph img,.split .ph video{height:auto;object-fit:initial}
+.svc-hero .ph{aspect-ratio:auto}
+.svc-hero .ph img{height:auto;object-fit:initial}
+.duo{align-items:start}
+.duo figure{aspect-ratio:auto}
+.duo img,.duo video{height:auto;object-fit:initial}
+.arch{aspect-ratio:715/1280;max-width:420px}
+.ba{max-width:400px}
+.subnav{display:flex;gap:6px;overflow-x:auto;scrollbar-width:none;padding:0 var(--pad) 10px;max-width:var(--max);margin:0 auto}
+.subnav::-webkit-scrollbar{display:none}
+.subnav a{flex:0 0 auto;font-size:14px;text-decoration:none;border:1px solid var(--rose-l);background:var(--card);border-radius:999px;padding:6px 14px}
+@media(min-width:960px){.subnav{display:none}}
+/* подписи под кадром, а не поверх него */
+.gallery figure,.duo figure{background:none;border-radius:0;overflow:visible}
+.gallery img,.gallery video,.duo img,.duo video{border-radius:16px}
+.gallery figcaption,.duo figcaption{position:static;display:block;background:none;padding:6px 4px 0;font-size:13px;color:var(--mute);border-radius:0}
+.healing .duo figcaption{color:#cbbdb5}
+.day-frame{overflow:visible;aspect-ratio:auto;display:grid;background:none}
+.day-frame img{position:relative;grid-area:1/1;border-radius:18px;height:auto;object-fit:initial}
+.day-cap{position:static;grid-area:2/1;margin-top:10px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12)}
