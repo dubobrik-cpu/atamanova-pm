@@ -374,3 +374,9 @@ section:has(> .wrap > .contra){padding-top:0}
 /* главное фото бровей (photo_2026-11-11_08-37-17 → 09-03-36): у кадра коричневые полосы сторис сверху и снизу по 175 px, рамка показывает только само фото, файл не обрезан */
 .svc-hero .ph:has(img[src$="brovi-1.jpg"]){aspect-ratio:720/922}
 .svc-hero .ph:has(img[src$="brovi-1.jpg"]) img{height:100%;object-fit:cover}
+/* 12.11 блок «Уход после процедуры» на главной */
+#uhod{background:var(--fill-p)}
+.uhod ul{margin:8px 0 0;padding:0;list-style:none;display:grid;gap:7px}
+.uhod li{position:relative;padding-left:22px;font-size:15.5px;line-height:1.45;color:#4a3f3a}
+.uhod li::before{content:"✓";position:absolute;left:0;top:0;color:var(--rose-d);font-weight:600}
+.uhod ul.net li::before{content:"✕";color:#9a8a84}
