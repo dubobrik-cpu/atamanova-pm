@@ -366,3 +366,8 @@ section:has(> .wrap > .contra){padding-top:0}
 .na3d.is-3d model-viewer{opacity:1}
 .na3d img{transition:opacity .6s ease}
 .na3d.is-3d img{opacity:0}
+
+/* 12.11 подраздел «Как заживают …» на страницах услуг: фото и ролики заживления под роликами по дням */
+.healing .gallery{grid-column:1/-1;margin-top:28px}
+.healing .gallery figcaption{color:#cbbdb5}
+.healing .vids-v{max-width:380px;justify-self:center;width:100%}
