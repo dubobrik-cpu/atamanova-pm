@@ -296,3 +296,16 @@ section .wrap > .strip{padding-left:0;padding-right:0}
 @media(min-width:900px){.faq-wrap{grid-template-columns:320px 1fr;align-items:start;gap:44px}.faq-wrap .faq{grid-template-columns:1fr}}
 .strip a{display:block}
 .split > *,.faq-wrap > *,.case > *{min-width:0}
+/* пара «до / после» без обрезки: обе картинки одной высоты */
+.pair{display:flex;gap:6px;align-items:flex-start;margin:0}
+.pair>div{flex:var(--r) 1 0;min-width:0}
+.pair img{display:block;width:100%;height:auto;border-radius:14px}
+.pair span{display:block;font-size:13px;color:var(--mute);padding:5px 2px 0}
+.strip .pair{flex:0 0 auto;width:min(84vw,calc(250px * var(--rs) + 6px))}
+.strip .pair img{height:auto;aspect-ratio:auto}
+@media(min-width:900px){.strip .pair{width:min(70vw,calc(300px * var(--rs) + 6px))}}
+.gallery .pair{break-inside:avoid;margin-bottom:8px}
+.pair.v{flex-direction:column;gap:4px}
+.pair.v>div{flex:none;width:100%}
+.strip .pair.v{width:min(84vw,calc(108px * var(--rmax)))}
+@media(min-width:900px){.strip .pair.v{width:min(70vw,calc(130px * var(--rmax)))}}
