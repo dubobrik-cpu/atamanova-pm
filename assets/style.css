@@ -267,3 +267,22 @@ section{padding:56px 0}
 .day-frame{overflow:visible;aspect-ratio:auto;display:grid;background:none}
 .day-frame img{position:relative;grid-area:1/1;border-radius:18px;height:auto;object-fit:initial}
 .day-cap{position:static;grid-area:2/1;margin-top:10px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12)}
+/* 12.11: услуги с работами, лента вбок без обрезки */
+.srv{background:var(--card);border-radius:22px;padding:18px 0 16px;margin-bottom:14px}
+.srv-h{display:flex;justify-content:space-between;align-items:flex-start;gap:12px;padding:0 18px 14px}
+.srv-h h3{font-size:24px}
+.srv-h small{display:block;color:var(--mute);font-size:14px;margin-top:4px;line-height:1.4}
+.srv-h .pr{font-weight:500;color:var(--gold);font-size:15px;white-space:nowrap;text-align:right}
+.strip{display:flex;gap:8px;overflow-x:auto;scroll-snap-type:x proximity;padding:0 18px 6px;scrollbar-width:thin;-webkit-overflow-scrolling:touch}
+.strip figure{flex:0 0 auto;scroll-snap-align:start;margin:0}
+.strip img,.strip video{display:block;height:250px;width:auto;max-width:none;border-radius:14px;background:var(--rose-l)}
+.strip figcaption{font-size:12.5px;color:var(--mute);padding:5px 2px 0;max-width:220px}
+.srv-f{display:flex;flex-wrap:wrap;align-items:center;gap:12px 18px;padding:12px 18px 0}
+.srv-f .btn{min-height:46px;padding:10px 20px}
+.srv-more{font-weight:500;color:var(--cta);text-decoration:none}
+@media(min-width:900px){.strip img,.strip video{height:300px}.srv{padding:24px 0 20px}.srv-h,.strip,.srv-f{padding-left:26px;padding-right:26px}}
+section .wrap > .strip{padding-left:0;padding-right:0}
+.logo img{height:54px;width:auto}
+.strip img,.strip video{height:min(250px,calc(80vw / var(--r,1)));width:auto;aspect-ratio:var(--r,1)}
+.strip figcaption{max-width:min(220px,80vw)}
+@media(min-width:900px){.strip img,.strip video{height:min(300px,calc(60vw / var(--r,1)))}}
