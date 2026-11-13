@@ -445,17 +445,23 @@ h1 .h1-mal{display:block;margin-top:.5em;font-family:Commissioner,system-ui,sans
 @media(max-width:600px){.kl-row.k4{flex-wrap:wrap}.kl-row.k4>div{flex:0 0 calc(50% - 3px)}}
 @media(min-width:900px){.klienty{display:block;columns:2;column-gap:16px}.klienty .klient{break-inside:avoid;margin-bottom:16px}}
 
-/* подарочный сертификат: плашка на каждой странице, видна при любой прокрутке (13.11) */
-.gift{position:fixed;right:14px;bottom:80px;z-index:31;display:flex;align-items:center;gap:8px;padding:10px 16px 10px 13px;border-radius:999px;background:#1f1917;color:var(--gold-l);text-decoration:none;font-size:14px;font-weight:500;letter-spacing:.01em;box-shadow:0 10px 26px rgba(29,23,21,.32),inset 0 0 0 1px rgba(214,178,116,.55);overflow:hidden;isolation:isolate;transition:opacity .3s var(--ease),transform .3s var(--ease)}
-.gift::before{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(110deg,transparent 35%,rgba(240,214,160,.55) 50%,transparent 65%);transform:translateX(-120%);animation:gift-blik 4.5s ease-in-out infinite}
-.gift svg{flex:0 0 auto;animation:gift-kach 4.5s ease-in-out infinite;transform-origin:50% 80%}
-.gift .g-full{display:none}
-.gift:hover{color:#f0d6a0}
+/* подарочный сертификат: плашка на каждой странице, видна при любой прокрутке. Вариант Б (13.11): светлое стекло, по рамке бежит золотая искра */
+@property --gift-a{syntax:"<angle>";inherits:false;initial-value:0deg}
+.gift{position:fixed;right:14px;bottom:80px;z-index:31;display:block;padding:1.5px;border-radius:999px;text-decoration:none;color:var(--ink);
+  background:conic-gradient(from var(--gift-a),rgba(201,164,106,.35) 0 70%,#c9a46a 80%,#fff3cf 86%,#c9a46a 92%,rgba(201,164,106,.35) 100%);
+  box-shadow:0 10px 28px rgba(120,70,70,.22),0 2px 6px rgba(120,70,70,.12);animation:gift-krug 3.2s linear infinite;transition:opacity .3s var(--ease),transform .3s var(--ease)}
+.gift-in{display:flex;align-items:center;gap:9px;padding:8px 16px 8px 12px;border-radius:999px;background:rgba(251,240,236,.78);-webkit-backdrop-filter:blur(12px) saturate(1.4);backdrop-filter:blur(12px) saturate(1.4)}
+.gift svg{flex:0 0 auto;color:var(--cta);animation:gift-kach 4.8s ease-in-out infinite;transform-origin:50% 80%}
+.gift-t{display:flex;flex-direction:column;line-height:1.15}
+.gift-t b{font-family:Prata,serif;font-weight:400;font-size:15px;color:var(--ink)}
+.gift-t small{font-size:10.5px;letter-spacing:.09em;text-transform:uppercase;color:var(--gold);margin-top:2px}
+.gift:hover{transform:translateY(-2px)}
 .gift.skryt{opacity:0;transform:translateY(10px);pointer-events:none}
-@keyframes gift-blik{0%,55%{transform:translateX(-120%)}80%,100%{transform:translateX(120%)}}
+@keyframes gift-krug{to{--gift-a:360deg}}
 @keyframes gift-kach{0%,58%,100%{transform:rotate(0)}64%{transform:rotate(-12deg)}70%{transform:rotate(10deg)}76%{transform:rotate(-6deg)}82%{transform:rotate(0)}}
-@media(min-width:960px){.gift{right:22px;bottom:22px;padding:12px 20px 12px 16px;font-size:15px}.gift .g-full{display:inline}.gift .g-short{display:none}}
-@media(prefers-reduced-motion:reduce){.gift::before,.gift svg{animation:none}}
+@supports not (backdrop-filter:blur(1px)){.gift-in{background:rgba(251,240,236,.96)}}
+@media(min-width:960px){.gift{right:22px;bottom:22px}.gift-in{padding:10px 22px 10px 16px;gap:11px}.gift-t b{font-size:17px}.gift-t small{font-size:11px}.gift svg{width:24px;height:24px}}
+@media(prefers-reduced-motion:reduce){.gift,.gift svg{animation:none}}
 /* переход по пунктам меню: заголовок блока не прячется под липкой шапкой */
 [id]{scroll-margin-top:90px}
 @media(max-width:959px){[id]{scroll-margin-top:122px}}
