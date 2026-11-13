@@ -431,3 +431,5 @@ h1 .h1-mal{display:block;margin-top:.5em;font-family:Commissioner,system-ui,sans
 .obo-g a{color:inherit;text-decoration-color:var(--gold-l);text-underline-offset:3px}
 .obo-f{margin-top:16px;font-family:Prata,Georgia,serif;font-size:20px}
 .obo-f a{font-family:Commissioner,system-ui,sans-serif;font-size:15px;color:var(--gold)}
+/* брови «Мои работы»: два коллажа и два ролика одной строкой на широком экране */
+@media(min-width:900px){.duo.kvadro{grid-template-columns:repeat(4,1fr);gap:12px}}
