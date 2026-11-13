@@ -409,3 +409,13 @@ section:has(> .wrap > .contra){padding-top:0}
 .award span{font-size:13.5px;color:var(--mute)}
 /* 13.11: ролики работ стали полными вертикальными - на широком экране 4 колонки, чтобы галерея не вытягивалась */
 @media(min-width:1200px){.gallery{columns:4}}
+/* 13.11 видео Нади: крупно «Перманентный макияж», мелко «татуаж в Ростове-на-Дону» */
+h1 .h1-mal{display:block;margin-top:.5em;font-family:Commissioner,system-ui,sans-serif;font-weight:400;font-size:clamp(15px,.34em,20px);line-height:1.35;letter-spacing:.02em;color:var(--mute)}
+.from small{white-space:nowrap;display:inline-block}
+/* цены бровей: две техники */
+.price h4{margin:14px 0 2px;font-family:inherit;font-size:12px;font-weight:500;letter-spacing:.08em;text-transform:uppercase;color:var(--gold)}
+.price h3 + h4{margin-top:4px}
+/* обучение: кубки и сертификаты */
+.nagrady-obuch{margin-top:40px}
+.nagrady-obuch h3{font-size:clamp(22px,2.6vw,28px);margin:0 0 6px}
+.nagrady-obuch > p{max-width:760px}
