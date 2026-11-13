@@ -441,4 +441,5 @@ h1 .h1-mal{display:block;margin-top:.5em;font-family:Commissioner,system-ui,sans
 .kl-row img,.kl-row video{display:block;width:100%;height:auto;border-radius:12px}
 .kl-row span{display:block;font-size:12.5px;color:var(--mute);padding:4px 2px 0}
 .klient figcaption{font-size:13.5px;color:var(--mute);padding:0 4px 2px}
+@media(max-width:600px){.kl-row.k4{flex-wrap:wrap}.kl-row.k4>div{flex:0 0 calc(50% - 3px)}}
 @media(min-width:900px){.klienty{display:block;columns:2;column-gap:16px}.klienty .klient{break-inside:avoid;margin-bottom:16px}}
