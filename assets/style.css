@@ -394,3 +394,11 @@ section:has(> .wrap > .contra){padding-top:0}
 .foot-niz{display:flex;justify-content:space-between;align-items:flex-end;gap:16px 32px;flex-wrap:wrap}
 .foot-niz .razrab{margin:0 0 0 auto;text-align:right;color:#a99a92;font-size:13px;line-height:1.5}
 .foot-niz .razrab a{color:#f4ebe5}
+/* Дипломы, сертификаты, награды: описание по группам */
+.creds{display:grid;gap:10px;margin:14px 0 0;padding:0}
+.creds li{list-style:none;padding:2px 0 2px 14px;border-left:2px solid var(--gold-l)}
+.creds li b{display:block;font-weight:500;font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--gold);margin-bottom:2px}
+.creds li span{display:block;font-size:14.5px;line-height:1.5;color:#4a3f3a}
+.nagrady{margin-top:44px}
+.nagrady h3{font-size:clamp(22px,2.6vw,30px);margin:0 0 6px}
+@media (min-width:860px){.nagrady .creds{grid-template-columns:1fr 1fr;gap:14px 36px}.nagrady > p{max-width:760px}}
