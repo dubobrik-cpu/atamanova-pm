@@ -433,6 +433,7 @@ h1 .h1-mal{display:block;margin-top:.5em;font-family:Commissioner,system-ui,sans
 .obo-f a{font-family:Commissioner,system-ui,sans-serif;font-size:15px;color:var(--gold)}
 /* брови «Мои работы»: два коллажа и два ролика одной строкой на широком экране */
 @media(min-width:900px){.duo.kvadro{grid-template-columns:repeat(4,1fr);gap:12px}}
+.duo.tri3{grid-template-columns:repeat(3,1fr)}@media(min-width:900px){.duo.tri3{gap:12px}}
 /* брови «Мои работы»: одна клиентка = одна карточка в рамке, кадры целиком одной высоты, подпись одна */
 .klienty{display:grid;grid-template-columns:1fr;gap:14px}
 .klient{margin:0;background:var(--card);border:1px solid var(--rose-l);border-radius:20px;padding:10px;display:flex;flex-direction:column;gap:8px}
