@@ -419,3 +419,15 @@ h1 .h1-mal{display:block;margin-top:.5em;font-family:Commissioner,system-ui,sans
 .nagrady-obuch{margin-top:40px}
 .nagrady-obuch h3{font-size:clamp(22px,2.6vw,28px);margin:0 0 6px}
 .nagrady-obuch > p{max-width:760px}
+/* 13.11 «Кратко обо мне»: текст Нади */
+.obo{display:grid;gap:12px;margin-top:18px}
+@media(min-width:860px){.obo{grid-template-columns:1fr 1fr;gap:20px}}
+.obo-g{background:#fff;border:1px solid rgba(29,23,21,.05);border-radius:18px;padding:18px 20px 8px;box-shadow:0 1px 2px rgba(29,23,21,.04),0 8px 24px rgba(29,23,21,.05)}
+.obo-g > b{display:block;font-weight:500;font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--gold);margin-bottom:4px}
+.obo-g ul{margin:0;padding:0}
+.obo-g li{list-style:none;position:relative;padding:10px 0 10px 18px;border-top:1px solid rgba(29,23,21,.06);line-height:1.45}
+.obo-g li:first-child{border-top:0}
+.obo-g li::before{content:"";position:absolute;left:2px;top:1.05em;width:6px;height:6px;border-radius:50%;background:var(--gold-l)}
+.obo-g a{color:inherit;text-decoration-color:var(--gold-l);text-underline-offset:3px}
+.obo-f{margin-top:16px;font-family:Prata,Georgia,serif;font-size:20px}
+.obo-f a{font-family:Commissioner,system-ui,sans-serif;font-size:15px;color:var(--gold)}
