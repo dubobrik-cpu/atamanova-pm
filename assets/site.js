@@ -50,6 +50,12 @@
     addEventListener('scroll', on, {passive:true}); on();
   }
 
+  // плашка сертификата прячется, только пока на экране сам блок сертификата
+  var gift = document.querySelector('.gift'), sert = document.getElementById('sertifikat');
+  if (gift && sert && 'IntersectionObserver' in window){
+    new IntersectionObserver(function(es){ gift.classList.toggle('skryt', es[0].isIntersecting); }).observe(sert);
+  }
+
   // меню закрывается по клику на пункт
   document.querySelectorAll('.menu-list a').forEach(function(a){ a.addEventListener('click', function(){ a.closest('details').removeAttribute('open'); }); });
 })();
