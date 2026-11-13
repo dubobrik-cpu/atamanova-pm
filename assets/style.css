@@ -462,3 +462,5 @@ h1 .h1-mal{display:block;margin-top:.5em;font-family:Commissioner,system-ui,sans
 /* шапка 960-1120: пунктов стало 7, телефон в одну строку */
 .tel{white-space:nowrap}
 @media(min-width:960px) and (max-width:1120px){.nav{gap:15px;font-size:13.5px}.tel{font-size:13.5px}}
+/* заголовок сертификата: перекладину «П» не срезает (запас по высоте), слева золото светлее на тёмном фоне */
+.coupon .sum{line-height:1.18;padding:.08em .04em .04em;margin:-.08em -.04em -.04em;background-image:linear-gradient(115deg,#d6b270 0%,#f3e2b3 45%,#d9b877 75%,#c9a15e 100%);background-size:100% 100%;-webkit-background-clip:text;background-clip:text;color:transparent}
