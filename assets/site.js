@@ -50,10 +50,16 @@
     addEventListener('scroll', on, {passive:true}); on();
   }
 
-  // плашка сертификата прячется, только пока на экране сам блок сертификата
-  var gift = document.querySelector('.gift'), sert = document.getElementById('sertifikat');
-  if (gift && sert && 'IntersectionObserver' in window){
-    new IntersectionObserver(function(es){ gift.classList.toggle('skryt', es[0].isIntersecting); }).observe(sert);
+  // плашка сертификата прячется, пока на экране сам блок сертификата или нижняя строка подвала («Разработано»)
+  var gift = document.querySelector('.gift');
+  var skryvat = [document.getElementById('sertifikat'), document.querySelector('.foot-niz')].filter(Boolean);
+  if (gift && skryvat.length && 'IntersectionObserver' in window){
+    var vidno = new Set();
+    var io = new IntersectionObserver(function(es){
+      es.forEach(function(e){ e.isIntersecting ? vidno.add(e.target) : vidno.delete(e.target); });
+      gift.classList.toggle('skryt', vidno.size > 0);
+    });
+    skryvat.forEach(function(el){ io.observe(el); });
   }
 
   // меню закрывается по клику на пункт
