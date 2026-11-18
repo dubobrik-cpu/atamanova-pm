@@ -438,11 +438,12 @@ h1 .h1-mal{display:block;margin-top:.5em;font-family:Commissioner,system-ui,sans
 .klienty{display:grid;grid-template-columns:1fr;gap:14px}
 .klient{margin:0;background:var(--card);border:1px solid var(--rose-l);border-radius:20px;padding:10px;display:flex;flex-direction:column;gap:8px}
 .kl-row{display:flex;gap:6px;align-items:flex-start}
-.kl-row>div{flex:var(--r) 1 0;min-width:0}
+.kl-row>div,.kl-p>div{flex:var(--r) 1 0;min-width:0}
 .kl-row img,.kl-row video{display:block;width:100%;height:auto;border-radius:12px}
 .kl-row span{display:block;font-size:12.5px;color:var(--mute);padding:4px 2px 0}
 .klient figcaption{font-size:13.5px;color:var(--mute);padding:0 4px 2px}
-@media(max-width:600px){.kl-row.k4{flex-wrap:wrap;justify-content:center}.kl-row.k4>div{flex:0 0 calc(50% - 3px)}}
+.kl-p{display:contents}
+@media(max-width:600px){.kl-row.k4{flex-direction:column;align-items:stretch}.kl-row.k4 .kl-p{display:flex;gap:6px;align-items:flex-start;justify-content:center}.kl-row.k4 .kl-p>div{flex:var(--r) 1 0;min-width:0}.kl-row.k4 .kl-p>div:only-child{flex:0 0 calc(50% - 3px)}}
 @media(min-width:900px){.klienty{display:block;columns:2;column-gap:16px}.klienty .klient{break-inside:avoid;margin-bottom:16px}}
 
 /* подарочный сертификат: плашка на каждой странице, видна при любой прокрутке. Вариант Б (13.11): светлое стекло, по рамке бежит золотая искра */
