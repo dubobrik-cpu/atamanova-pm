@@ -478,3 +478,4 @@ h1 .h1-mal{display:block;margin-top:.5em;font-family:Commissioner,system-ui,sans
 .ryad img,.ryad video{display:block;width:100%;height:auto;border-radius:16px}
 .ryad figcaption{padding:6px 4px 0;font-size:13px;color:var(--mute)}
 @media(min-width:900px){.ryady{display:flex;gap:12px;align-items:flex-start}.ryad{display:contents}.ryad>figure,.ryad.odin>figure{flex:var(--r) 1 0}}
+.studio{margin:0 0 10px;font-size:12px;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:var(--gold)}
