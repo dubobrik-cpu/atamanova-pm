@@ -117,3 +117,61 @@
   if (document.readyState === 'complete') setTimeout(load3d, 300);
   else addEventListener('load', function(){ setTimeout(load3d, 300); });
 })();
+
+// 19.11: фото и видео открываются крупно по нажатию (в любом браузере); долгое нажатие, правая кнопка и перетаскивание фото/видео выключены
+(function(){
+  var SKIP = '.ba, header, footer, .logo, .menu, .brand, a, button, .no-lb';
+  function ok(m){ return !m.closest(SKIP) && m.closest('main, section, .wrap'); }
+  function src(m){
+    if (m.tagName === 'IMG') return m.currentSrc || m.src;
+    var s = m.querySelector('source'); return (s && s.src) || m.currentSrc || m.src;
+  }
+  var GROUP = '.klient, .gallery, .duo, .strip, .vids, .ryady, .ryad, .tk, .pair, .trio, .kvadro';
+  var box, stage, list = [], cur = 0, sx = null;
+  function build(){
+    box = document.createElement('div'); box.className = 'lb'; box.setAttribute('role', 'dialog'); box.setAttribute('aria-label', 'Просмотр');
+    box.innerHTML = '<div class="lb-st"></div><button class="lb-x" aria-label="Закрыть">×</button><button class="lb-p" aria-label="Назад">‹</button><button class="lb-n" aria-label="Дальше">›</button>';
+    document.body.appendChild(box); stage = box.querySelector('.lb-st');
+    box.addEventListener('click', function(e){
+      if (e.target.closest('.lb-p')) return go(-1);
+      if (e.target.closest('.lb-n')) return go(1);
+      if (e.target.closest('.lb-x') || e.target === box || e.target === stage) close();
+    });
+    box.addEventListener('touchstart', function(e){ sx = e.touches[0].clientX; }, {passive: true});
+    box.addEventListener('touchend', function(e){ if (sx === null) return; var dx = e.changedTouches[0].clientX - sx; sx = null; if (Math.abs(dx) > 50) go(dx < 0 ? 1 : -1); });
+    box.addEventListener('contextmenu', function(e){ e.preventDefault(); });
+  }
+  function show(){
+    var m = list[cur], el;
+    if (m.tagName === 'IMG'){ el = new Image(); el.src = src(m); el.alt = m.alt || ''; }
+    else { el = document.createElement('video'); el.src = src(m); el.muted = true; el.loop = true; el.autoplay = true; el.playsInline = true;
+      el.setAttribute('playsinline', ''); el.setAttribute('disablepictureinpicture', ''); el.setAttribute('controlslist', 'nodownload noplaybackrate');
+      if (m.poster) el.poster = m.poster; }
+    el.draggable = false;
+    stage.innerHTML = ''; stage.appendChild(el);
+    if (el.play){ var p = el.play(); if (p && p.catch) p.catch(function(){}); }
+    box.classList.toggle('one', list.length < 2);
+  }
+  function go(d){ cur = (cur + d + list.length) % list.length; show(); }
+  function open(m){
+    if (!box) build();
+    var g = m.closest(GROUP);
+    list = g ? [].slice.call(g.querySelectorAll('img, video')).filter(ok) : [m];
+    cur = Math.max(0, list.indexOf(m));
+    show(); box.classList.add('on'); document.documentElement.classList.add('lb-open');
+  }
+  function close(){ box.classList.remove('on'); stage.innerHTML = ''; document.documentElement.classList.remove('lb-open'); }
+  document.addEventListener('keydown', function(e){
+    if (!box || !box.classList.contains('on')) return;
+    if (e.key === 'Escape') close(); else if (e.key === 'ArrowRight') go(1); else if (e.key === 'ArrowLeft') go(-1);
+  });
+  document.addEventListener('click', function(e){
+    var m = e.target.closest('img, video');
+    if (!m || (box && box.contains(m)) || !ok(m)) return;
+    e.preventDefault(); open(m);
+  });
+  // защита от скачивания: без меню «Сохранить», без перетаскивания
+  document.addEventListener('contextmenu', function(e){ if (e.target.closest('img, video')) e.preventDefault(); });
+  document.addEventListener('dragstart', function(e){ if (e.target.closest('img, video')) e.preventDefault(); });
+  document.querySelectorAll('img, video').forEach(function(m){ m.draggable = false; if (ok(m)) m.classList.add('lb-can'); });
+})();
