@@ -520,3 +520,7 @@ html.lb-open,html.lb-open body{overflow:hidden}
 .tk-i img{aspect-ratio:1/1;object-fit:cover}
 @media(min-width:900px){.tk-i img{aspect-ratio:4/3;max-height:none}}
 .tk-i{align-content:start}
+/* 19.11 карточка с одним кадром: по размеру кадра, без пустого места внутри рамки */
+.klient:has(> .kl-row > div:only-child){width:fit-content;max-width:100%}
+.kl-row > div:only-child{flex:0 1 auto}
+.kl-row > div:only-child img,.kl-row > div:only-child video{width:auto;max-width:100%;max-height:min(640px,80vh)}
