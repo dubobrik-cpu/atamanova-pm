@@ -516,3 +516,6 @@ img,video{-webkit-touch-callout:none;-webkit-user-select:none;user-select:none}
 .lb-n{right:12px;top:50%;transform:translateY(-50%)}
 .lb.one .lb-p,.lb.one .lb-n{display:none}
 html.lb-open,html.lb-open body{overflow:hidden}
+/* три картинки техник одной формы, заголовки на одной высоте */
+.tk-i img{aspect-ratio:1/1;object-fit:cover}
+@media(min-width:900px){.tk-i img{aspect-ratio:4/3;max-height:none}}
