@@ -519,3 +519,4 @@ html.lb-open,html.lb-open body{overflow:hidden}
 /* три картинки техник одной формы, заголовки на одной высоте */
 .tk-i img{aspect-ratio:1/1;object-fit:cover}
 @media(min-width:900px){.tk-i img{aspect-ratio:4/3;max-height:none}}
+.tk-i{align-content:start}
