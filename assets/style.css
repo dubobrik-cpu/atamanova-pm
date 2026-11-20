@@ -524,13 +524,21 @@ html.lb-open,html.lb-open body{overflow:hidden}
 .klient:has(> .kl-row > div:only-child){width:fit-content;max-width:100%}
 .kl-row > div:only-child{flex:0 1 auto}
 .kl-row > div:only-child img,.kl-row > div:only-child video{width:auto;max-width:100%;max-height:min(640px,80vh)}
-/* «Мои работы» рядами одной высоты (веки): ширина карточки по пропорциям её кадров, ряд заполняется по ширине, последний ряд не растягивается */
-.klienty.plot{display:flex;flex-wrap:wrap;gap:10px;columns:auto;--h:200px}
-.klienty.plot::after{content:'';flex:1000 1 0}
-.klienty.plot .klient{flex:var(--s) 1 calc(var(--s) * var(--h) + var(--o));width:auto;max-width:100%;margin:0;padding:10px}
+/* «Мои работы» рядами одной высоты (веки, plot() в build.py): ширина карточки по пропорциям её кадров (--s), рамка и зазоры (--o).
+   ПК и планшет: ряды собраны при сборке, полный ряд растягивается ровно по ширине, неполный (.kor) нет.
+   Телефон: ряды не видны, карточки переносятся сами, одиночные кадры по два в ряд, карточки из 4+ кадров во всю ширину */
+.klienty.plot{columns:auto;display:block}
+.klienty.plot .klient{width:auto;max-width:100%;margin:0;padding:10px;break-inside:auto}
 .klienty.plot .kl-row>div:only-child{flex:1 1 auto}
 .klienty.plot .kl-row>div:only-child img,.klienty.plot .kl-row>div:only-child video{width:100%;max-height:none}
 .klienty.plot .klient figcaption{font-size:12.5px;line-height:1.3}
-@media(max-width:600px){.klienty.plot .klient:has(.kl-row.k4){flex:1 1 100%}}
-@media(min-width:601px){.klienty.plot{--h:230px}}
-@media(min-width:900px){.klienty.plot{gap:12px;--h:300px}.klienty.plot .klient{margin:0;break-inside:auto}}
+.pl-r{display:flex;gap:12px;margin-bottom:12px;align-items:stretch}
+.pl-r .klient{flex:var(--s) 1 calc(var(--s) * 100px + var(--o))}
+.pl-r.kor .klient{flex:0 1 calc(var(--s) * 270px + var(--o))}
+@media(max-width:600px){
+  .klienty.plot{display:flex;flex-wrap:wrap;gap:10px}
+  .klienty.plot::after{content:'';flex:1000 1 0}
+  .pl-r{display:contents}
+  .pl-r .klient,.pl-r.kor .klient{flex:var(--s) 1 calc(var(--s) * 200px + var(--o));max-width:calc(var(--s) * 290px + var(--o))}
+  .pl-r .klient:has(.kl-row.k4){flex:1 1 100%;max-width:100%}
+}
