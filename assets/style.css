@@ -535,10 +535,12 @@ html.lb-open,html.lb-open body{overflow:hidden}
 .pl-r{display:flex;gap:12px;margin-bottom:12px;align-items:stretch}
 .pl-r .klient{flex:var(--s) 1 calc(var(--s) * 100px + var(--o))}
 .pl-r.kor .klient{flex:0 1 calc(var(--s) * 270px + var(--o))}
+.pl-br{display:none}
 @media(max-width:600px){
-  .klienty.plot{display:flex;flex-wrap:wrap;gap:10px}
-  .klienty.plot::after{content:'';flex:1000 1 0}
+  .klienty.plot{display:flex;flex-wrap:wrap;column-gap:10px;row-gap:0}
   .pl-r{display:contents}
-  .pl-r .klient,.pl-r.kor .klient{flex:var(--s) 1 calc(var(--s) * 200px + var(--o));max-width:calc(var(--s) * 290px + var(--o))}
-  .pl-r .klient:has(.kl-row.k4){flex:1 1 100%;max-width:100%}
+  .pl-br{display:block;flex:0 0 100%;height:0}
+  .pl-r .klient,.pl-r.kor .klient{flex:var(--s) 1 calc(var(--s) * 60px + var(--o));margin-bottom:10px;max-width:100%}
+  .pl-r .klient.mkor{flex:0 1 calc(var(--s) * 260px + var(--o))}
+  .pl-r .klient:has(.kl-row.k4){flex:1 1 100%}
 }
