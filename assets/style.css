@@ -544,3 +544,7 @@ html.lb-open,html.lb-open body{overflow:hidden}
   .pl-r .klient.mkor{flex:0 1 calc(var(--s) * 260px + var(--o))}
   .pl-r .klient:has(.kl-row.k4){flex:1 1 100%}
 }
+
+/* 25.11 описание кейса под кадрами (удаление): что было и почему так решили */
+.klient .kl-txt{margin:0;padding:0 4px 4px;font-size:14px;line-height:1.45;color:var(--ink);max-width:62ch}
+.klienty.plot .klient .kl-txt{font-size:13.5px}
